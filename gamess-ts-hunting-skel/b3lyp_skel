@@ -1,0 +1,10 @@
+ $contrl scftyp=uhf dfttyp=b3lyp ispher=0 mult=2
+         runtyp=sadpoint maxit=100 coord=zmt $end
+ $dft jans=2 DC=.T. IDCVER=3 $end
+ $basis gbasis=APCseg-1 $end
+! $basis gbasis=n31 ngauss=6
+!        NPFUNC=1 NDFUNC=1 DIFFSP=.T. DIFFS=.T. $end
+ $scf dirscf=.true. diis=.true. $end
+ $system mwords=300 memddi=300 $end
+ $statpt method=SCHLEGEL nstep=100
+         ihrep=4 hess=calc hssend=.true. $end
