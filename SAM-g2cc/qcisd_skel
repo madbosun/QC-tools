@@ -1,0 +1,25 @@
+*ACES2(CALC=CCSD(T)
+BASIS=6-311G**
+scf_exporder=8
+scf_expstart=2
+charge=0,mult=2
+units=angstrom
+drop_mo=1-15
+REF=UHF
+cc_conv=7
+scf_conv=8
+spherical=on,SYM=NONE
+)
+
+*SIP
+MAXMEM=3000
+SIAL_PROGRAM = scf_aguess.sio
+SIAL_PROGRAM = scf_uhf_finish_aguess.sio
+SIAL_PROGRAM = tran_uhf_ao_sv1.sio
+SIAL_PROGRAM = qcisd_uhf.sio
+SIAL_PROGRAM = uqcisdpt_aaa.sio
+SIAL_PROGRAM = uqcisdpt_bbb.sio
+SIAL_PROGRAM = uqcisdpt_aab.sio
+SIAL_PROGRAM = uqcisdpt_bba.sio
+
+

@@ -1,0 +1,16 @@
+*ACES2(CALC=MBPT(2)
+BASIS=6-311+G(3df-2p)
+scf_exporder=8
+scf_expstart=2
+charge=0,mult=2
+units=angstrom
+REF=UHF
+drop_mo=1-15
+cc_conv=7
+scf_conv=8
+spherical=on,SYM=NONE
+)
+
+*SIP
+MAXMEM=3000
+
