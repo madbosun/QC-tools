@@ -1,0 +1,22 @@
+*ACES2(CALC=CCSD
+BASIS=6-31++G**,spherical=off
+dropmo=1-15
+charge=0,mult=2,ref=uhf
+scf_conv=6,cc_conv=6
+scf_exporder=8,scf_expstart=2
+scf_maxcyc=1000,cc_maxcyc=1000
+opt_maxcyc=50
+units=angstrom,sym=none
+geom_opt=partial,opt_method=evftz,init_hessian=fcmint
+)
+
+*SIP
+MAXMEM=1500
+SIAL_PROGRAM = scf_aguess.sio
+SIAL_PROGRAM = scf_uhf_finish_aguess.sio
+SIAL_PROGRAM = lccd_uhf.sio
+SIAL_PROGRAM = expand_lccd_uhf.sio
+SIAL_PROGRAM = lccd_gtran_uhf.sio
+SIAL_PROGRAM = lccd_g1_uhf.sio
+SIAL_PROGRAM = lccd_g2_uhf.sio
+
