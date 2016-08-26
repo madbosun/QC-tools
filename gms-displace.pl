@@ -13,6 +13,8 @@ use strict;
 # displacements along the normal mode vector
 #################################################################
 
+print "  This code assumes that we are only looking at the first mode printed by GAMESS\n";
+
 my $deltas= 3.0; #Math::BigFloat->new(3.0);
 
 use Getopt::Long;
@@ -52,6 +54,7 @@ for(my $k=0; $k<scalar(@sym); $k++) {
     $masshash{$sym[$k]} = $atmaslist[$k];
 }
 
+
 FILEREAD:
 while(<R>) {
 # get standard coordinates from gamess output
@@ -66,9 +69,6 @@ while(<R>) {
             $_ =~ s/        //;
             my @tmp  = split(/\s+/);
             $at[$i] = $tmp[0];
-            #$x[$i] = Math::BigFloat->new($tmp[2]);
-            #$y[$i] = Math::BigFloat->new($tmp[3]);
-            #$z[$i] = Math::BigFloat->new($tmp[4]);
             $x[$i] = $tmp[2]*0.529177249;
             $y[$i] = $tmp[3]*0.529177249;
             $z[$i] = $tmp[4]*0.529177249;
@@ -107,24 +107,19 @@ while(<R>) {
             $_ =~ s/^\s+//;
 
             my @tmp1 = split(/\s+/);
-            #$XX[$i] = Math::BigFloat->new($tmp1[3]);
             $XX[$i] = $tmp1[3];
 
             ($_ = <R>) =~ s/^\s+//;
             my @tmp2 = split(/\s+/);
-            #$YY[$i] = Math::BigFloat->new($tmp2[2]);
-            $YY[$i] = $tmp2[2];
+            $YY[$i] = $tmp2[1];
 
             ($_ = <R>) =~ s/^\s+//;
             my @tmp3 = split(/\s+/);
-            #$ZZ[$i] = Math::BigFloat->new($tmp3[2]);
-            $ZZ[$i] = $tmp3[2];
+            $ZZ[$i] = $tmp3[1];
 
-       #     print "$XX[$i] $YY[$i] $ZZ[$i]\n";
             ++$i;
         }
 
-# this is where we finish assuming first mode only
         last FILEREAD;
     }
 }
@@ -178,15 +173,15 @@ for (my $k=0; $k < scalar(@at); ++$k) {
     $Mz[$k] = $z[$k] - $ZZ[$k]*$delta;
 
 # shift to TS center of mass    
-    $x[$k] -= $cmX;
-    $y[$k] -= $cmY;
-    $z[$k] -= $cmZ;
-    $Px[$k] -= $cmX;
-    $Py[$k] -= $cmY;
-    $Pz[$k] -= $cmZ;
-    $Mx[$k] -= $cmX;
-    $My[$k] -= $cmY;
-    $Mz[$k] -= $cmZ;
+#    $x[$k] -= $cmX;
+#    $y[$k] -= $cmY;
+#    $z[$k] -= $cmZ;
+#    $Px[$k] -= $cmX;
+#    $Py[$k] -= $cmY;
+#    $Pz[$k] -= $cmZ;
+#    $Mx[$k] -= $cmX;
+#    $My[$k] -= $cmY;
+#    $Mz[$k] -= $cmZ;
 }
 
 open(Wp,">$rootname-pds.xyz");
