@@ -51,16 +51,16 @@ while(<>) {
 
 }
 
-print " ### CUT HERE FOR _AN_HARMONIC SPECTRA ####\n";
-print "#Method\n#Jobtype\n";
+#print " ### CUT HERE FOR _AN_HARMONIC SPECTRA ####\n";
+print "#System\n#Method\n";
 
 for($k=0; $k < scalar(@AnSpectra); $k++) {
-    printf "%10.3f %14.7f\n", $AnSpectra[$k], $AnIntensity[$k];
+    printf "%-10.3f %14.7f\n", $AnSpectra[$k], $AnIntensity[$k];
 }
 
-print "\n ### CUT HERE FOR HARMONIC SPECTRA ####\n";
-print "#Method\n#Jobtype\n";
-
-for($k=0; $k < scalar(@HarmSpectra); $k++) {
-    printf "%10.3f %14.7f\n", $HarmSpectra[$k], $HarmIntensity[$k];
-}
+#print "\n ### CUT HERE FOR HARMONIC SPECTRA ####\n";
+#print "#System\n#Method\n";
+#
+#for($k=0; $k < scalar(@HarmSpectra); $k++) {
+#    printf "%-10.3f %14.7f\n", $HarmSpectra[$k], $HarmIntensity[$k];
+#}

@@ -26,8 +26,9 @@ while(<Ro>) {
     if (/CONSTRAINED OPTIMIZATION POINT/) {
         my@temp = split(/\s+/);
         $prefix = $temp[8];
-        print "$prefix\n";
+        print "$filename.$prefix\n";
         open(W,">$filename.$prefix");
+        print "$filename.$prefix\n";
 
         print W '$DATA',"\n";
         print W "$filename IRC POINT $prefix\n";
