@@ -1,0 +1,7 @@
+ $contrl scftyp=uhf mplevl=2 ispher=0 mult=2
+ runtyp=hessian maxit=100 nprint=-5 $end
+ $mp2 nacore=13 nbcore=13 $end
+ $basis gbasis=n31 ngauss=6
+ NPFUNC=1 NDFUNC=1 DIFFSP=.T. DIFFS=.T. $end
+ $scf dirscf=.true. diis=.true. $end
+ $system mwords=400 memddi=400 $end
